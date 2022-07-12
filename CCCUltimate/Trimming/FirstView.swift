@@ -37,6 +37,9 @@ struct FirstView: View {
         .sheet(isPresented: $viewModel.isShowPhotoLibrary) {
             ImagePicker(status: $viewModel.status, image: $viewModel.image, viewModel: viewModel)
         }
+        .alert(viewModel.alertTitel, isPresented: $viewModel.isShowAlert) {
+            
+        }
     }
 }
 
