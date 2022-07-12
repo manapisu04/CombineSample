@@ -52,7 +52,7 @@ class TrimmingViewModel:NSObject, ObservableObject {
             }
             
             // 保存する処理
-            //MARK: Modelじゃなくてもいいかなと思いました
+            //FIXME: 今後変更を加えるため、消しやすいようにModelじゃなくしました
             UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.imageSaveCompletion(_:didFinishSavingWithError:context:)), nil)
         }
         
@@ -60,6 +60,7 @@ class TrimmingViewModel:NSObject, ObservableObject {
         cancellables.append(uiImageCancellable)
     }
     
+    // FIXME: 消すかも
     @objc func imageSaveCompletion(_ image: UIImage, didFinishSavingWithError error: Error?, context: UnsafeRawPointer) {
         alertTitel = error == nil ? "保存できたよ" : error?.localizedDescription ?? "ごめんね"
         isShowAlert = true
